@@ -5,7 +5,7 @@ public class Hero extends Characters{
     private int maxHealth = 10000;
     private int level = 0;
     private int experience = 0;
-    private int attack = 50;
+    private int attack = 0;
 
 
 
@@ -14,11 +14,22 @@ public class Hero extends Characters{
 //   }else if (primeiraLetra == 'd'){
 //   }
 
-
-
-
     // Getters
 
+    public void Heal(int n){
+        health = health + n;
+        if (health > maxHealth);{
+            FullHeal();
+        }
+    }
 
 
+    public void FullHeal(){
+        health = maxHealth;
+    }
+
+
+    public void Training(int n){
+        attack = attack + n;
+    }
 }

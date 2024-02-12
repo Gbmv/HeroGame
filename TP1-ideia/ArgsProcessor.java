@@ -60,7 +60,7 @@ public class ArgsProcessor{
         
         boolean live = true;
         int enemiesDefeat = 0;
-        String text = ""; 
+        String output; 
 
     
         switch (phrase[0]) {
@@ -152,10 +152,10 @@ public class ArgsProcessor{
 
                     }
                   if (live){
-                    text = "In his quest " + phrase[0] + " fought" +  enemiesDefeat;
+                    output = "In his quest " + phrase[0] + " fought" +  enemiesDefeat;
                   }
                   else{
-                    text =  "In his quest, " + phrase[0] + "died after beating " + enemiesDefeat + " enemies";
+                    output =  "In his quest, " + phrase[0] + "died after beating " + enemiesDefeat + " enemies";
                   }
 
                 
@@ -183,18 +183,21 @@ public class ArgsProcessor{
                 //TODO : Handle the fight
                
             case "rested":
-
+                hero.FullHeal();
                 //TODO : Handle the resting
                 break;
             case "healed":
-                
+                int healthAdded = Integer.parseInt(phrase[1]);
+                hero.Heal(healthAdded);
                 //TODO : Handle the healing
                 break;
-            case "trained":
+            case "trained": 
+                int attackAdded = Integer.parseInt(phrase[3]);
+                hero.Training(attackAdded);
                 //TODO : Handle the training
                 break;
         }
-        System.out.println(text);
+        System.out.println(output);
         return true;
         
     }
