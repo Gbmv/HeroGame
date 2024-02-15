@@ -4,24 +4,20 @@ public class Combat extends Characters  {
     Enemy enemy = new Enemy();
     int heroAttack = hero.getAttack();
     int enemyAttack = enemy.getAttack();
-
-    //The hero starts alive
-    boolean live = true;
-    // Counter of lifes of enemies killed
-    int enemiesDefeat = 0;
+    int enemiesDefeat = 0; // counter of enemies defeted
+   
 
     // Output
     String output;
 
     public String fight(String[] phrase) {
-        while (live) {
-            int numberEnemies = Integer.parseInt(phrase[1]);
-            for (int i = 0; i < numberEnemies; i++) {
+        int numberEnemies = Integer.parseInt(phrase[1]);
+        while ( numberEnemies > 0 && hero.getHealth() > 0 ) {
+            
+            int damageToEnemy = heroAttack;
+            int damageToHero = enemyAttack;
 
-
-                int damageToEnemy = heroAttack;
-                int damageToHero = enemyAttack;
-
+            while (hero.getHealth() > 0 ) {
 
                 // Calcule of the damage to the enemy
                 int newEnemyHealth = enemy.getHealth() - damageToEnemy;
@@ -31,55 +27,44 @@ public class Combat extends Characters  {
 
                 // Update the enemy health
                 enemy.setHealth(newEnemyHealth);
-                // Update the hero health
-                hero.setHealth(newHeroHealth);
 
 
                 // Enemy death
-                if (newEnemyHealth <= 0) {
+                if (newEnemyHealth >= 0) {
 
+                    hero.setHealth(newHeroHealth);}
+
+                else{
+
+                
                     // Reduce the number of enemies
                     numberEnemies--;
 
-                    // No more Enemies alive
-                    if (numberEnemies <= 0) {
-                        live = false;
-                        output = "In his quest the hero fought  " +  enemiesDefeat + "enemies";
-                        //    System.out.print(text1););
+                    // Increases the number of enemies killed
+                    enemiesDefeat++;
 
-                                    /*if (newHeroHealth >= 0) {
-                                        // Hero survived in battle
-                                        return live;
-                                    } else {
-                                        // Hero died in battle
-                                        return live  = false;
-                                    }*/
-                        break;
-                    }
-                    // There are still enemies alive
-                    else {
-                        // Increase the attack point of the enemy
-                        enemy.setAttack(enemy.getAttack() + 5);
-                        // Increase the live point of the enemy
-                        enemy.setHealth(enemy.getHealth() + 10);
-                        // Increases the xp of the enemy
-                        enemy.setExperience(enemy.getExperience() + 8);
+                    // Increase the attack point of the enemy
+                    enemy.setAttack(enemy.getAttack() + 5);
+                    // Increase the live point of the enemy
+                    enemy.setHealth(enemy.getHealth() + 10);
+                    // Increases the xp of the enemy
+                    enemy.setExperience(enemy.getExperience() + 8);
 
-                        // Increases the xp of the hero
-                        hero.setExperience(hero.getExperience() + 10);
-                        // Increases the number of enemies killed
-                        enemiesDefeat++;
-                    }
-                }
-
-                // Hero is death
-                else if (newHeroHealth <= 0) {
-                    live = false;
-                    output = "In his quest, " + phrase[0] + "died after beating " + enemiesDefeat + " enemies";
+                    // Increases the xp of the hero
+                    hero.LevelUp();
                     break;
                 }
             }
+
         }
+
+        if (hero.getHealth() <= 0){
+            output = "died after beating " + enemiesDefeat + " enemies and attaining level " + hero.getLevel() + "!";
+        }
+        else{
+            output = "beat " + enemiesDefeat +" enemies,";
+        }
+     
         return output;
     }
 }
