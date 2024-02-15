@@ -5,13 +5,13 @@ public class ArgsProcessor {
         // TODO : Handle the phrase and output the result
 
         // Analise what is the first letter of the name of the Hero
-        char firstLetter = Character.toLowerCase(phrase[0].charAt(0));
-        System.out.println(firstLetter);
+        char firstLetter = phrase[0].charAt(0);
+        System.out.println(firstLetter); // debugger first letter
 
-        if (firstLetter == 'a') {
+        if (firstLetter == 'A') {
             // Type attack
             HeroAttack.toAttack();
-        } else if (firstLetter == 'd') {
+        } else if (firstLetter == 'D') {
             // Type defend
             HeroDefend.toDefend();
         } else {
@@ -34,6 +34,9 @@ public class ArgsProcessor {
 
         // Concertar
         for (int i = 0; i < phrase.length; i++) {
+            System.out.println(phrase[i] + "");
+            System.out.println("------------------------------");
+
             doAction(phrase[i], hero);
             // this loop must pick all the do allctions and give a full message in the end.
         }
@@ -52,6 +55,9 @@ public class ArgsProcessor {
         // mots par des espaces
         String[] phrase = action.trim().split(" ");
         // le type d'action est déterminé par le premier mot de la phrase
+        System.out.println("action:  " + action);
+        System.out.println("phrase:  " + phrase);
+        System.out.println("------------------------------");
 
         switch (phrase[0]) {
             case "fought":
