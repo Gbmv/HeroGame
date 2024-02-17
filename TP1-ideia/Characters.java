@@ -1,16 +1,17 @@
-public class Characters  {
+public class Characters {
 
     // Atributs
-    private int health ;
-    private int maxHealth ;
-    private int level ;
-    private int experience ;
-    private static int attack;
+    private int health;
+    private int maxHealth;
+    private int level;
+    private int experience;
+    private int attack;
 
     // Getters
     public int getHealth() {
         return health;
     }
+
     public int getMaxHealth() {
         return maxHealth;
     }
@@ -18,6 +19,7 @@ public class Characters  {
     public int getLevel() {
         return level;
     }
+
     public int getExperience() {
         return experience;
     }
@@ -25,8 +27,6 @@ public class Characters  {
     public int getAttack() {
         return attack;
     }
-
-
 
     // Setters
     public void setHealth(int health) {
@@ -46,8 +46,7 @@ public class Characters  {
     }
 
     public void setAttack(int attack) {
-        this.attack  = attack;
+        this.attack = attack;
     }
-
 
 }

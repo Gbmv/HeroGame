@@ -8,7 +8,7 @@ public class ArgsProcessor {
         char firstLetter = phrase[0].charAt(0);
         System.out.println(firstLetter); // debugger first letter
 
-        if (firstLetter == 'A') {
+        /*if (firstLetter == 'A') {
             // Type attack
             HeroAttack.toAttack();
         } else if (firstLetter == 'D') {
@@ -16,26 +16,31 @@ public class ArgsProcessor {
             HeroDefend.toDefend();
         } else {
             //
-        }
+        }*/
 
-        Hero hero = new Hero();
-        Enemy enemy = new Enemy();
-
+        
         // Hero health points
         int health = Integer.parseInt(phrase[1]);
-
+        //System.out.println("SET: " + health);
         // Hero attack points
         int attack = Integer.parseInt(phrase[2]);
 
         // Giving the health points to the hero
-        hero.setHealth(health);
+        //hero.setHealth(health);
+        //System.out.println("GET: " + hero.getHealth());
+
         // Giving the attack points to the hero
-        hero.setAttack(attack);
+        //hero.setAttack(attack);
+        
+        
+        Hero hero = new Hero(health, health, 0, 0, attack);
+
+        Enemy enemy = new Enemy(health, 0, attack);
 
         // Concertar
         for (int i = 0; i < phrase.length; i++) {
-            System.out.println(phrase[i] + "");
-            System.out.println("------------------------------");
+            // System.out.println(phrase[i] + "");
+            // System.out.println("------------------------------");
 
             doAction(phrase[i], hero);
             // this loop must pick all the do allctions and give a full message in the end.
@@ -60,24 +65,29 @@ public class ArgsProcessor {
         System.out.println("------------------------------");
 
         switch (phrase[0]) {
+            // System.out.println("switch: " + phrase [0]);
             case "fought":
-                Combat combat = new Combat();
+                Combat combat = new Combat(hero, enemy);
                 System.out.println(combat.fight(phrase));
                 // TODO : Handle the fight
                 break;
             case "rested":
                 hero.FullHeal();
+                System.out.println("hero status:   FULL_HEAL");
                 // TODO : Handle the resting
                 break;
             case "healed":
                 int healthAdded = Integer.parseInt(phrase[1]);
                 // Change for give an message
                 hero.Heal(healthAdded);
+                System.out.println("hero status: HEALED " + healthAdded + " HP!");
                 // TODO : Handle the healing
                 break;
             case "trained":
                 int attackAdded = Integer.parseInt(phrase[3]);
                 hero.Training(attackAdded);
+                System.out.println("hero status: TRAINED to get" + attackAdded + " Att!");
+
                 // TODO : Handle the training
                 break;
         }
