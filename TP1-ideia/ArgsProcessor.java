@@ -35,7 +35,7 @@ public class ArgsProcessor {
         
         Hero hero = new Hero(health, health, 1, 0, attack);
 
-        Enemy enemy = new Enemy(100, 35, 25);
+        //Enemy enemy = new Enemy(100, 35, 25);
 
         // Concertar
         for (int i = 0; i < phrase.length; i++) {
@@ -56,6 +56,8 @@ public class ArgsProcessor {
     // puis effectue l'action correspondante
     // retourne true si le joueur survit à l'action, false sinon
     private static boolean doAction(String action, Hero hero) {
+        
+        Enemy enemy = new Enemy(100, 100, 35, 25);
         // ici, on transforme le String action en un tableau de String, en séparant les
         // mots par des espaces
         String[] phrase = action.trim().split(" ");
@@ -64,7 +66,7 @@ public class ArgsProcessor {
         System.out.println("phrase:  " + phrase);
         System.out.println("------------------------------");
 
-        Enemy enemy = new Enemy(100, 35, 25);
+        
 
 
         switch (phrase[0]) {
