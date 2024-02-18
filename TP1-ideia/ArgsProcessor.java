@@ -43,9 +43,15 @@ public class ArgsProcessor {
             // System.out.println(phrase[i] + "");
             // System.out.println("------------------------------");
 
-            doAction(phrase[i], hero, enemy);
+            if (doAction(phrase[i], hero, enemy) == false) {
+                System.out.println("died after beating " + Combat.enemiesDefeat + " enemies and attaining level " + hero.getLevel() + "!");
+                return;
+            }
+            
+
             // this loop must pick all the do allctions and give a full message in the end.
         }
+        System.out.println("succes :D");
 
     }
 
@@ -74,9 +80,10 @@ public class ArgsProcessor {
             // System.out.println("switch: " + phrase [0]);
             case "fought":
                 Combat combat = new Combat(hero, enemy);
-                System.out.println(combat.fight(phrase));
+                return combat.fight(phrase);
+                //System.out.println(combat.fight(phrase));
                 // TODO : Handle the fight
-                break;
+
             case "rested":
                 hero.FullHeal();
                 System.out.println("hero status:   FULL_HEAL");

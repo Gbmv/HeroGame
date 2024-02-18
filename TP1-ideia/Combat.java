@@ -15,15 +15,15 @@ public class Combat {
 
     // Output
     String output;
-
+    static int enemiesDefeat;
     
 
-    public String fight(String[] phrase) {
+    public boolean fight(String[] phrase) {
 
 
         int heroAttack = hero.getAttack();
         int enemyAttack = enemy.getAttack();
-        int enemiesDefeat = 0; // counter of enemies defeted
+        //int enemiesDefeat = 0; // counter of enemies defeted
 
 
 
@@ -32,7 +32,7 @@ public class Combat {
         System.out.println("Hero Health: " + hero.getHealth());
         System.out.println("Number enemies: " + numberEnemies);
 
-        for (int i=0; i < 5; i++   ){
+        for (int i=0; i < numberEnemies; i++   ){
         //while (hero.getHealth() > 0 && numberEnemies > 0) {
             System.out.println("While 1");
 
@@ -70,7 +70,7 @@ public class Combat {
 
                     // Increases the number of enemies killed
                     enemiesDefeat++;
-                    System.out.println("enemies defeated: "+ numberEnemies);
+                    System.out.println("enemies defeated: "+ enemiesDefeat);
 
                     // Increase the attack point of the enemy
                     enemy.setAttack(enemy.getAttack() + 5);
@@ -99,16 +99,14 @@ public class Combat {
 
         if (hero.getHealth() <= 0) {
             output = "died after beating " + enemiesDefeat + " enemies and attaining level " + hero.getLevel() + "!"; // TODO:
-                                                                                                                      // did
+            return false;                                                                                                          // did
                                                                                                                       // he
                                                                                                                       // Lv.
                                                                                                                       // UP?
         } else {
             output = "beat " + enemiesDefeat + " enemies,";
+            return true;
         }
-        System.out.println("enemies Defeated:  " + enemiesDefeat);
-        System.out.println("experience:  " + hero.getExperience());
 
-        return output;
-    }
+        }
 }
