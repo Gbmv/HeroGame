@@ -33,9 +33,9 @@ public class ArgsProcessor {
         //hero.setAttack(attack);
         
         
-        Hero hero = new Hero(health, health, 0, 0, attack);
+        Hero hero = new Hero(health, health, 1, 0, attack);
 
-        Enemy enemy = new Enemy(health, 0, attack);
+        Enemy enemy = new Enemy(100, 35, 25);
 
         // Concertar
         for (int i = 0; i < phrase.length; i++) {
@@ -63,6 +63,9 @@ public class ArgsProcessor {
         System.out.println("action:  " + action);
         System.out.println("phrase:  " + phrase);
         System.out.println("------------------------------");
+
+        Enemy enemy = new Enemy(100, 35, 25);
+
 
         switch (phrase[0]) {
             // System.out.println("switch: " + phrase [0]);

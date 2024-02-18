@@ -8,10 +8,10 @@ public class Combat {
     this.enemy = enemy;
   }
 
-
-    int heroAttack = hero.getAttack();
-    int enemyAttack = enemy.getAttack();
-    int enemiesDefeat = 0; // counter of enemies defeted
+    
+  //int heroAttack = hero.getAttack();
+  //int enemyAttack = enemy.getAttack();
+  //int enemiesDefeat = 0; // counter of enemies defeted
 
     // Output
     String output;
@@ -19,6 +19,14 @@ public class Combat {
     
 
     public String fight(String[] phrase) {
+
+
+        int heroAttack = hero.getAttack();
+        int enemyAttack = enemy.getAttack();
+        int enemiesDefeat = 0; // counter of enemies defeted
+
+
+
         int numberEnemies = Integer.parseInt(phrase[1]);
         System.out.println("pre While 1 ");
         System.out.println("Hero Health: " + hero.getHealth());

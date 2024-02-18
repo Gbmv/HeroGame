@@ -2,7 +2,7 @@ public class Hero extends Characters {
 
     private int health;
     private int maxHealth = 10000;
-    private int level = 0;
+    private int level = 1;
     private double xpRequise;
     private int experience = 0; 
     private int attack = 0;
@@ -19,7 +19,7 @@ public class Hero extends Characters {
         this.level = level;
         this.experience = experience;
         this.attack = attack;
-        this.xpRequise = xpRequise;  // ???
+      //this.xpRequise = xpRequise;  // ???
     }
 
     // Getters
