@@ -42,7 +42,7 @@ public class Combat {
             System.out.println(enemy.getAttack());
 
 
-            while (hero.getHealth() > 0 && enemy.getHealth() <= 0) {
+            while (hero.getHealth() > 0) {
                 System.out.println("While 2 ");
 
                 // Calcule of the damage to the enemy
