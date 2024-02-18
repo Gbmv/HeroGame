@@ -33,8 +33,9 @@ public class ArgsProcessor {
         //hero.setAttack(attack);
         
         
-        Hero hero = new Hero(health, health, 1, 0, attack);
-
+        Hero hero = new Hero(health, attack);
+        Enemy enemy = new Enemy();
+        
         //Enemy enemy = new Enemy(100, 35, 25);
 
         // Concertar
@@ -42,7 +43,7 @@ public class ArgsProcessor {
             // System.out.println(phrase[i] + "");
             // System.out.println("------------------------------");
 
-            doAction(phrase[i], hero);
+            doAction(phrase[i], hero, enemy);
             // this loop must pick all the do allctions and give a full message in the end.
         }
 
@@ -55,9 +56,9 @@ public class ArgsProcessor {
     // méthode qui prend la partie de la phrase qui décrit l'action et le héros,
     // puis effectue l'action correspondante
     // retourne true si le joueur survit à l'action, false sinon
-    private static boolean doAction(String action, Hero hero) {
+    private static boolean doAction(String action, Hero hero, Enemy enemy) {
         
-        Enemy enemy = new Enemy(100, 100, 35, 25);
+        
         // ici, on transforme le String action en un tableau de String, en séparant les
         // mots par des espaces
         String[] phrase = action.trim().split(" ");

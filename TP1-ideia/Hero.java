@@ -1,7 +1,5 @@
 public class Hero extends Characters {
-
-    private int health;
-    private int maxHealth = 10000;
+;
     private int level = 1;
     private double xpRequise;
     private int experience = 0; 
@@ -13,11 +11,9 @@ public class Hero extends Characters {
     // }else if (primeiraLetra == 'd'){
     // }
 
-    public Hero(int health, int maxHealth, int level, int experience, int attack) {
-        this.health = health;
-        this.maxHealth = maxHealth;
-        this.level = level;
-        this.experience = experience;
+    public Hero(int maxHealth, int attack) {
+        super(maxHealth, 0, attack);
+        this.level = 1;
         this.attack = attack;
       //this.xpRequise = xpRequise;  // ???
     }

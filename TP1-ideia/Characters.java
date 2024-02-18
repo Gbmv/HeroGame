@@ -1,11 +1,18 @@
 public class Characters {
 
     // Atributs
-    private int health;
-    private int maxHealth;
-    private int level;
-    private int experience;
-    private int attack;
+    protected int health;
+    protected int maxHealth;
+    protected int experience;
+    protected int attack;
+
+    //Constrctor
+    public Characters(int maxHealth, int experience, int attack) {
+        this.health = maxHealth;
+        this.maxHealth = maxHealth;
+        this.experience = experience;
+        this.attack = attack;
+    }
 
     // Getters
     public int getHealth() {
@@ -14,10 +21,6 @@ public class Characters {
 
     public int getMaxHealth() {
         return maxHealth;
-    }
-
-    public int getLevel() {
-        return level;
     }
 
     public int getExperience() {
@@ -35,10 +38,6 @@ public class Characters {
 
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
     }
 
     public void setExperience(int experience) {
