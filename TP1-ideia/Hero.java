@@ -38,6 +38,14 @@ public class Hero extends Characters {
 
     // Functions
 
+    public void Attack(Enemy enemy, int attack) {
+        enemy.setHealth( enemy.getHealth() - ( attack ));
+    }
+
+    public void Hurt(int attack) {
+        health -= attack ;
+    }
+
     public void Heal(int n) {
         health += n;
         if (health > maxHealth);{

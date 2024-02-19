@@ -1,17 +1,17 @@
 public class HeroAttack extends Hero {
 
-    static Hero myHero = new Hero();
-    // static Enemy myEnemy = new Enemy();
-
-    public static void toAttack() {
-        myHero.setAttack(myHero.getAttack()*2); 
-
-
-        // int heroAttack = myHero.getAttack();
-        // int newAttackHero = 2*heroAttack;
-        // // int enemyAttack = myEnemy.getAttack();
-
-        // return newAttackHero;
-        // // myEnemy.setAttack(2 * enemyAttack);
+    public HeroAttack(int level, int attack) {
+        super(level, attack);
     }
+    
+    @Override
+    public void Attack(Enemy enemy, int attack) {
+        enemy.setHealth( enemy.getHealth() - ( attack * 2 ));
+    }
+
+    @Override
+    public void Hurt( int attack) {
+        health -= attack * 2 ;
+    }
+
 }

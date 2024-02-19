@@ -21,8 +21,8 @@ public class Combat {
     public boolean fight(String[] phrase) {
 
 
-        int heroAttack = hero.getAttack();
-        int enemyAttack = enemy.getAttack();
+        //int heroAttack = hero.getAttack();
+        //int enemyAttack = enemy.getAttack();
         //int enemiesDefeat = 0; // counter of enemies defeted
 
 

@@ -8,15 +8,7 @@ public class ArgsProcessor {
         char firstLetter = phrase[0].charAt(0);
         System.out.println(firstLetter); // debugger first letter
 
-        /*if (firstLetter == 'A') {
-            // Type attack
-            HeroAttack.toAttack();
-        } else if (firstLetter == 'D') {
-            // Type defend
-            HeroDefend.toDefend();
-        } else {
-            //
-        }*/
+        
 
         
         // Hero health points
@@ -25,15 +17,20 @@ public class ArgsProcessor {
         // Hero attack points
         int attack = Integer.parseInt(phrase[2]);
 
-        // Giving the health points to the hero
-        //hero.setHealth(health);
-        //System.out.println("GET: " + hero.getHealth());
-
-        // Giving the attack points to the hero
-        //hero.setAttack(attack);
+        Hero hero;
+        if (firstLetter == 'A') {
+            // Type attack
+            hero = new HeroAttack(health, attack);
+        } else if (firstLetter == 'D') {
+            // Type defend
+            hero = new HeroDefend(health, attack);
+        } else {
+            hero = new Hero(health, attack);
+        }
         
         
-        Hero hero = new Hero(health, attack);
+        
+        //Hero hero = new Hero(health, attack);
         Enemy enemy = new Enemy();
         
         //Enemy enemy = new Enemy(100, 35, 25);
