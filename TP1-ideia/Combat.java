@@ -18,6 +18,8 @@ public class Combat {
         int numberEnemies = Integer.parseInt(phrase[1]);
         System.out.println("pre While 1 ");
         System.out.println("Hero Health: " + hero.getHealth());
+        System.out.println("Hero attack: " + hero.getHealth());
+        System.out.println("Enemy Health: " + enemy.getHealth());
         System.out.println("Number enemies: " + numberEnemies);
 
         for (int i=0; i < numberEnemies; i++   ){
@@ -32,6 +34,7 @@ public class Combat {
 
             while (hero.getHealth() > 0) {
                 System.out.println("While 2 ");
+                System.out.println("Hero level =  " + hero.getLevel());
 
 
 
@@ -42,18 +45,19 @@ public class Combat {
 
                 // Update the enemy health
                 enemy.setHealth(newEnemyHealth);
-                System.out.println("enemyHP: " + newEnemyHealth);
+                System.out.println("Health enemmy: " + newEnemyHealth);
 
-                // Enemy death
+                // Enemy alive
                 if (newEnemyHealth > 0) {
 
                     hero.setHealth(newHeroHealth);
-                    System.out.println("heroHP: "+newHeroHealth);
+                    System.out.println("The enemy is alive");
+                    System.out.println("hero health: "+newHeroHealth);
 
                 }
-
+                // Enemy death
                 else {
-
+                    System.out.println("The enemy is death");
                     // Reduce the number of enemies
                     numberEnemies--;
                     System.out.println("#enemies: "+ numberEnemies);
@@ -68,16 +72,22 @@ public class Combat {
 
                     // Increase the live point of the enemy
                     enemy.setMaxHealth(enemy.getMaxHealth() + 10);
-                    System.out.println("enemies MaxHP: "+ enemy.getMaxHealth());
+                    System.out.println("enemies Maxhealth: "+ enemy.getMaxHealth());
 
                     enemy.setHealth(enemy.getMaxHealth());
                     // Increases the xp of the enemy
                     enemy.setExperience(enemy.getExperience() + 8);
                     System.out.println("enemies XP: "+ enemy.getExperience());
+                    System.out.println("hero XP: "+ hero.getExperience());
+
 
 
                     // Increases the xp of the hero
+                    hero.setExperience(hero.getExperience()+12);
+
+
                     hero.LevelUp();
+                    System.out.println("Hero Experience " + hero.getExperience());
                     System.out.println("pre BREAK ");
                     break;
                 }
@@ -88,7 +98,7 @@ public class Combat {
 
         }
         if (hero.getHealth() <= 0) {
-            return false;                                                                                                          // did
+            return false;
 
         } else {
             return true;
