@@ -1,21 +1,16 @@
 public class Hero extends Characters {
-;
+    ;
     private int level = 1;
     private double xpRequise;
-    private int experience = 0; 
+    private int experience = 0;
     private int attack = 0;
 
-    // char primeiraLetra = Character.toLowerCase(frase.charAt(0)); Pra sabe se o
-    // primeiro é letra a
-    // if (priemiraLetra == 'a'){
-    // }else if (primeiraLetra == 'd'){
-    // }
+
 
     public Hero(int maxHealth, int attack) {
         super(maxHealth, 0, attack);
         this.level = 1;
         this.attack = attack;
-      //this.xpRequise = xpRequise;  // ???
     }
 
     // Getters
@@ -38,10 +33,12 @@ public class Hero extends Characters {
 
     // Functions
 
+    // Calcul of the damage to the enemy
     public void Attack(Enemy enemy, int attack) {
         enemy.setHealth( enemy.getHealth() - ( attack ));
     }
 
+    // Calcule the damage to the hero
     public void Hurt(int attack) {
         health -= attack ;
     }
@@ -62,7 +59,7 @@ public class Hero extends Characters {
     }
 
     public int LevelUp() {
-        experience += 12;        //TODO: enemy experience is 12 by defaul, then changes LevelUP( enemy XP )
+        experience += 12;
 
         xpRequise = 50 + (level + 1) * 20 * Math.pow(1.1, level + 1);
 
@@ -79,8 +76,6 @@ public class Hero extends Characters {
 
             }
         }
-
         return level;
-
     }
 }
