@@ -1,4 +1,5 @@
 public class ArgsProcessor {
+    private static final Enemy enemy = new Enemy();
     public static void process(String[] args) {
         String[] phrase = makePhrase(args[0]);
 
@@ -31,28 +32,21 @@ public class ArgsProcessor {
 
 
 
-        Enemy enemy = new Enemy();
 
 
 
 
-        for (int i = 0; i < phrase.length  ; i++) {
-            // System.out.println(phrase[i] + "");
-            // System.out.println("------------------------------");
+//        Enemy enemy = new Enemy();
 
-            // Looping to read all the messages
-            if (doAction(phrase[i], hero, enemy) == false) {
+        for (int i = 3; i < phrase.length; i++) {
+            if (!doAction(phrase[i], hero, enemy)) {
                 System.out.println( "In his quest " + phrase[0]  +" died after beating " + Combat.enemiesDefeat +
                         " enemies and attaining level " + hero.getLevel() + "!");
                 return;
             }
-
-
-            // this loop must pick all the do allctions and give a full message in the end.
         }
         System.out.println("In his quest," + phrase[0] + " beat  " + Combat.enemiesDefeat + " enemies , attained level "
                 + hero.getLevel() + " and survived with " + hero.getAttack() + "HP" );
-
     }
 
 
@@ -110,8 +104,14 @@ public class ArgsProcessor {
         switch (phrase[0]) {
             // System.out.println("switch: " + phrase [0]);
             case "fought":
-                Combat combat = new Combat(hero, enemy);
-                return combat.fight(phrase);
+                int enemies = Integer.parseInt(phrase[1]);
+                for (int i = 0; i < enemies; i++) {
+                    Combat combat = new Combat(hero, enemy);
+                    if (!combat.fight(phrase)) {
+                        return false;
+                    }
+                }
+                break;
             case "rested":
                 hero.FullHeal();
                 System.out.println("hero status:   FULL_HEAL");
@@ -123,7 +123,8 @@ public class ArgsProcessor {
                 break;
             case "trained":
                 int attackAdded = Integer.parseInt(phrase[3]);
-                hero.Training(attackAdded);
+                hero.setAttack(hero.getAttack() + attackAdded);
+//                hero.Training(attackAdded);
                 System.out.println("hero status: TRAINED to get" + attackAdded + " Att!");
                 break;
         }
