@@ -1,5 +1,5 @@
 public class Hero extends Characters {
-    ;
+    
     private int level = 1;
     private double xpRequise;
     private int experience = 0;
