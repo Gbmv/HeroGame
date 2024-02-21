@@ -60,7 +60,7 @@ public class Hero extends Characters {
 
     public int LevelUp() {
 
-//        experience += 12;
+       experience += 12;
 
         xpRequise = 50 + (level + 1) * 20 * Math.pow(1.1, level + 1);
         System.out.println("Xp requise hero " + xpRequise);
