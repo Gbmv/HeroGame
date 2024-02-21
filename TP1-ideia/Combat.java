@@ -83,7 +83,7 @@ public class Combat {
 
 
                     // Increases the xp of the hero
-                    hero.setExperience(hero.getExperience()+12);
+                   // hero.setExperience(hero.getExperience()+12);//
 
 
                     hero.LevelUp();
