@@ -23,7 +23,7 @@ public class Combat {
         System.out.println("Number enemies: " + numberEnemies);
 
         //while (numberEnemies>0 && hero.getHealth() > 0) {
-        for (int i=0; i < numberEnemies; i++   ){
+        for (int i=0; i < numberEnemies; i++ ){
             //while (hero.getHealth() > 0 && numberEnemies > 0) {
             System.out.println("While 1");
 
@@ -40,9 +40,9 @@ public class Combat {
 
 
                 // Calcule of the damage to the enemy
-                int newEnemyHealth = enemy.getHealth() - hero.getAttack();
+                //int newEnemyHealth = enemy.getHealth() - hero.getAttack();
                 // Calculate the damage to the hero
-                int newHeroHealth = hero.getHealth() - enemy.getAttack();
+                //int newHeroHealth = hero.getHealth() - enemy.getAttack();
 
                 // Update the enemy health
 
@@ -51,8 +51,8 @@ public class Combat {
                 System.out.println("Health enemmy: " + enemy.getHealth());
 
                 // Enemy alive
-                if (newEnemyHealth > 0) {
-
+                if (enemy.getHealth() > 0) {
+                    System.out.println( enemy.getHealth() > 0 );
                     //hero.setHealth(newHeroHealth);
                     hero.Hurt(enemy.getAttack());
                     System.out.println("The enemy is alive");
@@ -63,8 +63,7 @@ public class Combat {
                 else {
                     System.out.println("The enemy is death");
                     // Reduce the number of enemies
-                    numberEnemies--;
-                    System.out.println("#enemies: "+ numberEnemies);
+                    System.out.println("# enemies: "+ numberEnemies);
 
                     // Increases the number of enemies killed
                     enemiesDefeat++;

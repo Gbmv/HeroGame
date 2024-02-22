@@ -40,13 +40,13 @@ public class ArgsProcessor {
 
         for (int i = 3; i < phrase.length; i++) {
             if (!doAction(phrase[i], hero, enemy)) {
-                System.out.println( "In his quest " + phrase[0]  +" died after beating " + Combat.enemiesDefeat +
+                System.out.println( "In his quest, " + phrase[0]  +" died after beating " + Combat.enemiesDefeat +
                         " enemies and attaining level " + hero.getLevel() + "!");
                 return;
             }
         }
-        System.out.println("In his quest," + phrase[0] + " beat  " + Combat.enemiesDefeat + " enemies , attained level "
-                + hero.getLevel() + " and survived with " + hero.getHealth() + "HP" );
+        System.out.println("In his quest, " + phrase[0] + " beat " + Combat.enemiesDefeat + " enemies, attained level "
+                + hero.getLevel() + " and survived with " + hero.getHealth() + "HP!" );
     }
 
 
@@ -104,13 +104,11 @@ public class ArgsProcessor {
         switch (phrase[0]) {
             // System.out.println("switch: " + phrase [0]);
             case "fought":
-                int enemies = Integer.parseInt(phrase[1]);
-                for (int i = 0; i < enemies; i++) {
-                    Combat combat = new Combat(hero, enemy);
-                    if (!combat.fight(phrase)) {
+                Combat combat = new Combat(hero, enemy);
+                if (!combat.fight(phrase)) {
                         return false;
                     }
-                }
+                
                 break;
             case "rested":
                 hero.FullHeal();
