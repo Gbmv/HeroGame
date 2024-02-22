@@ -46,7 +46,7 @@ public class ArgsProcessor {
             }
         }
         System.out.println("In his quest," + phrase[0] + " beat  " + Combat.enemiesDefeat + " enemies , attained level "
-                + hero.getLevel() + " and survived with " + hero.getAttack() + "HP" );
+                + hero.getLevel() + " and survived with " + hero.getHealth() + "HP" );
     }
 
 

@@ -1,9 +1,7 @@
 public class Hero extends Characters {
     
-    private int level = 1;
-    private double xpRequise;
-    private int experience = 0;
-    private int attack = 0;
+    protected int level = 1;
+    protected double xpRequise;
 
 
 
@@ -58,15 +56,16 @@ public class Hero extends Characters {
         attack = attack + n;
     }
 
-    public int LevelUp() {
+    public void LevelUp(int XpGotten) {
 
-       experience += 12;
+        experience += XpGotten; 
+        System.out.println("hero new XP: " + experience);
 
         xpRequise = 50 + (level + 1) * 20 * Math.pow(1.1, level + 1);
         System.out.println("Xp requise hero " + xpRequise);
 
         if (experience >= xpRequise) {
-
+            
             System.out.println("Hero level increase");
             experience = 0;
 
@@ -80,6 +79,6 @@ public class Hero extends Characters {
 
             }
         }
-        return level;
+        //return level;
     }
 }

@@ -7,6 +7,7 @@ public class HeroDefend extends Hero{
     @Override
     public void Attack(Enemy enemy, int attack) {
         enemy.setHealth( enemy.getHealth() - ( attack / 2 ));
+        
     }
 
     @Override
