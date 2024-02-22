@@ -13,12 +13,11 @@ public class Combat {
     static int enemiesDefeat;
 
 
-    public boolean fight(String[] phrase) {
+    public boolean fight(int numLoop) {
 
-        int numberEnemies = Integer.parseInt(phrase[1]);
 
         //while (numberEnemies>0 && hero.getHealth() > 0) {
-        for (int i=0; i < numberEnemies; i++ ){
+        for (int i=0; i < numLoop; i++ ){
             //while (hero.getHealth() > 0 && numberEnemies > 0) {
 
             //int damageToEnemy = heroAttack;
