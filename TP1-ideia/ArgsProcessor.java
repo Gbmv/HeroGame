@@ -7,7 +7,6 @@ public class ArgsProcessor {
 
         // Analise what is the first letter of the name of the Hero
         char firstLetter = phrase[0].charAt(0);
-        System.out.println(firstLetter); // debugger first letter
 
 
 
@@ -94,9 +93,7 @@ public class ArgsProcessor {
         // mots par des espaces
         String[] phrase = action.trim().split(" ");
         // le type d'action est déterminé par le premier mot de la phrase
-        System.out.println("action:  " + action);
-        System.out.println("phrase:  " + phrase);
-        System.out.println("------------------------------");
+
 
 
 
@@ -112,18 +109,15 @@ public class ArgsProcessor {
                 break;
             case "rested":
                 hero.FullHeal();
-                System.out.println("hero status:   FULL_HEAL");
                 break;
             case "healed":
                 int healthAdded = Integer.parseInt(phrase[1]);
                 hero.Heal(healthAdded);
-                System.out.println("hero status: HEALED " + healthAdded + " HP!");
                 break;
             case "trained":
                 int attackAdded = Integer.parseInt(phrase[3]);
                 hero.setAttack(hero.getAttack() + attackAdded);
 //                hero.Training(attackAdded);
-                System.out.println("hero status: TRAINED to get" + attackAdded + " Att!");
                 break;
         }
         return true;
