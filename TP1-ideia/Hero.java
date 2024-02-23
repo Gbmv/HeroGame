@@ -43,7 +43,7 @@ public class Hero extends Characters {
 
     public void Heal(int n) {
         health += n;
-        if (health > maxHealth);{
+        if (health > maxHealth){
             FullHeal();
         }
     }
