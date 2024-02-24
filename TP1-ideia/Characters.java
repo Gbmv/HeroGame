@@ -7,12 +7,13 @@ public class Characters {
     protected int attack;
 
     //Constrctor
-    public Characters(int maxHealth, int experience, int attack) {
+    public Characters( int maxHealth, int experience, int attack ) {
         this.health = maxHealth;
         this.maxHealth = maxHealth;
         this.experience = experience;
         this.attack = attack;
     }
+
 
     // Getters
     public int getHealth() {
@@ -31,6 +32,7 @@ public class Characters {
         return attack;
     }
 
+
     // Setters
     public void setHealth(int health) {
         this.health = health;
@@ -47,5 +49,4 @@ public class Characters {
     public void setAttack(int attack) {
         this.attack = attack;
     }
-
 }

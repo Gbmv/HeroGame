@@ -1,94 +1,67 @@
 public class Combat {
 
+    // Attributes
     private Hero hero;
     private Enemy enemy;
+    public static int enemiesDefeat;
 
-    public Combat(Hero hero, Enemy enemy) {
+    // Constructor
+    public Combat( Hero hero, Enemy enemy ) {
         this.hero = hero;
         this.enemy = enemy;
     }
 
 
+    // Methodes
 
-    static int enemiesDefeat;
+    // This method simulates a fight between the hero and the enemy for a specified number of loops.
+    // return true if the hero survives the fight, false if he dies.
+    public boolean fight( int numLoop ) {
 
+        for ( int i=0; i < numLoop; i++ ) {
 
-    public boolean fight(int numLoop) {
+            // Repeats while the hero is still alive or breaks if the enemy dies
+            while ( hero.getHealth() > 0 ) {
 
+                hero.Attack( enemy, hero.getAttack() );
 
-        //while (numberEnemies>0 && hero.getHealth() > 0) {
-        for (int i=0; i < numLoop; i++ ){
-            //while (hero.getHealth() > 0 && numberEnemies > 0) {
+                // if enemy is alive
+                if ( enemy.getHealth() > 0 ) {
 
-            //int damageToEnemy = heroAttack;
-
-            //int damageToHero = enemyAttack;
-
-
-
-            while (hero.getHealth() > 0) {
-
-
-
-
-                // Calcule of the damage to the enemy
-                //int newEnemyHealth = enemy.getHealth() - hero.getAttack();
-                // Calculate the damage to the hero
-                //int newHeroHealth = hero.getHealth() - enemy.getAttack();
-
-                // Update the enemy health
-
-                //enemy.setHealth(newEnemyHealth);
-                hero.Attack(enemy, hero.getAttack());
-
-                // Enemy alive
-                if (enemy.getHealth() > 0) {
-                    //hero.setHealth(newHeroHealth);
-                    hero.Hurt(enemy.getAttack());
+                    // Updates hero's health
+                    hero.Hurt( enemy.getAttack() );
 
 
                 }
-                // Enemy death
-                else {
-                    // Reduce the number of enemies
 
-                    // Increases the number of enemies killed
+                // if enemy is dead
+                else {
+
                     enemiesDefeat++;
 
-                    // Increase the attack point of the enemy
-                    enemy.setAttack(enemy.getAttack() + 5);
+                    // Increase the enemy's attack points
+                    enemy.setAttack( enemy.getAttack() + 5 );
 
-                    // Increase the live point of the enemy
-                    enemy.setMaxHealth(enemy.getMaxHealth() + 10);
+                    // Increase the enemy's max health
+                    enemy.setMaxHealth( enemy.getMaxHealth() + 10 );
 
-                    enemy.setHealth(enemy.getMaxHealth());
-                  
+                    // Getts the enemy's health to it's max to prepare the next combat
+                    enemy.setHealth( enemy.getMaxHealth() );
 
-                   // Increases the xp of the hero
-                   // hero.setExperience(hero.getExperience()+12);//
-                    
-                    //hero.setExperience(enemy.getExperience());
-                    hero.LevelUp(enemy.getExperience());
+                    // Increases the xp of the hero and checks if he leveled-Up
+                    hero.LevelUp( enemy.getExperience() );
 
-                  
-                    
                     // Increases the xp of the enemy
-                    enemy.setExperience(enemy.getExperience() + 8);
+                    enemy.setExperience( enemy.getExperience() + 8 );
 
-
-
-
-                    
-
-
-                    
                     break;
                 }
             }
-
-
         }
-        if (hero.getHealth() <= 0) {
+
+        // Return false if the hero is dead
+        // and true if he's alive
+        if ( hero.getHealth() <= 0 ) {
             return false;
 
         } else {

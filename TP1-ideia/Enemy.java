@@ -1,9 +1,10 @@
-public class Enemy extends Characters{
-    // Atributs
-    // no attributs
+public class Enemy extends Characters {
+    
+    // Attributes
+    // no attributes
 
-    public Enemy(){
-        super(100, 35, 25);
+    //Constructor
+    public Enemy() {
+        super( 100, 35, 25 );
     }
-
 }
